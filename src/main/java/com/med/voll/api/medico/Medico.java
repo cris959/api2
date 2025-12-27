@@ -1,7 +1,6 @@
 package com.med.voll.api.medico;
 
 
-import com.med.voll.api.direccion.DatosDireccion;
 import com.med.voll.api.direccion.Direccion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,6 +21,7 @@ public class Medico {
     private Long id;
     private String nombre;
     private String email;
+    private String telefono;
     private String documento;
 
     @Enumerated(EnumType.STRING)
@@ -33,6 +33,7 @@ public class Medico {
         this.id = null;
         this.nombre = datos.nombre();
         this.email = datos.email();
+        this.telefono = datos.telefono();
         this.documento = datos.documento();
         this.especialidad = datos.especialidad();
         this.direccion = new Direccion(datos.direccion());

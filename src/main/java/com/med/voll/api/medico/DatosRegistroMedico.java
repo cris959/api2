@@ -12,6 +12,9 @@ public record DatosRegistroMedico(
         String nombre,
         @NotBlank @Email
         String email,
+        @NotBlank(message = "Teléfono es obligatorio")
+        @Pattern(regexp = "\\d{10,15}", message = "Solo números (10-15 dígitos)")
+        String telefono,
         @NotBlank @Pattern(regexp = "\\d{8}", message = "El DNI debe tener exactamente 8 dígitos numéricos")
         String documento,
         @NotNull
