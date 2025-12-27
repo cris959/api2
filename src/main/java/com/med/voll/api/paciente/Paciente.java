@@ -39,4 +39,16 @@ public class Paciente {
         this.telefono = datos.telefono();
         this.direccion = new Direccion(datos.direccion());
     }
+
+    public void actualizarInformaciones(DatosActualizacionPaciente datos) {
+        if(datos.nombre() != null) {
+            this.nombre = datos.nombre();
+        }
+        if (datos.telefono() != null) {
+            this.telefono = datos.telefono();
+        }
+        if (datos.direccion() != null) {
+            this.direccion.actualizarDireccion(datos.direccion());
+        }
+    }
 }
