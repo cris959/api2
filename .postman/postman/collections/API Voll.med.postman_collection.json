@@ -1,0 +1,253 @@
+{
+  "info": {
+    "_postman_id": "b8f1a6e8-a0aa-40db-bd8b-357e210d65dc",
+    "name": "API Voll.med",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Medicos",
+      "item": [
+        {
+          "name": "Registro de medico",
+          "id": "da5c0b25-41ab-4690-92f3-f8e3acb270be",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Kuky Garay\",\r\n    \"email\": \"kuky@gmail.com\",\r\n    \"telefono\": \"34567892345\",\r\n    \"documento\": \"33056078\",\r\n    \"especialidad\": \"DERMATOLOGIA\",\r\n    \"direccion\": {\r\n        \"calle\": \"calle W\",\r\n        \"numero\": \"6\",\r\n        \"complemento\": \"complemento\",\r\n        \"barrio\": \"barrio\",\r\n        \"codigo_postal\": \"5842\",\r\n        \"ciudad\": \"El Fortin\",\r\n        \"estado\": \"San Luis\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/medicos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "medicos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar medicos",
+          "id": "0d351c9b-6328-4437-b6f6-c26777d76a13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Kuky Garay\",\r\n    \"email\": \"kuky@gmail.com\",\r\n    \"telefono\": \"34567892345\",\r\n    \"documento\": \"33056078\",\r\n    \"especialidad\": \"DERMATOLOGIA\",\r\n    \"direccion\": {\r\n        \"calle\": \"calle W\",\r\n        \"numero\": \"6\",\r\n        \"complemento\": \"complemento\",\r\n        \"barrio\": \"barrio\",\r\n        \"codigo_postal\": \"5842\",\r\n        \"ciudad\": \"El Fortin\",\r\n        \"estado\": \"San Luis\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/medicos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "medicos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar medico",
+          "id": "06c62ab0-eedc-4d47-a8b3-7661db9538ed",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"Tobias Garay\"    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/medicos/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "medicos",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar medico",
+          "id": "b048d586-6ded-486b-bab2-2c3f31a38b01",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"1\",\r\n    \"activo\": true,\r\n    \"nombre\": \"Carbonero Garay\",\r\n    \"telefono\": \"3544878111\"       \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/medicos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "medicos"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "748bed3c-7407-4744-b061-0845a9e4e173"
+    },
+    {
+      "name": "Paciente",
+      "item": [
+        {
+          "name": "Registro de paciente",
+          "id": "966382a6-e877-4cca-af3a-9655c054d759",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Linda Evanz\",\r\n    \"email\": \"linda@example.com\",\r\n    \"telefono\": \"45612345678\",\r\n    \"documento\": \"12905678\",\r\n    \"direccion\": {\r\n        \"calle\": \"Calle Llegate\",\r\n        \"numero\": \"15\",\r\n        \"complemento\": \"Apto 1\",\r\n        \"barrio\": \"Centro\",\r\n        \"ciudad\": \"Corrientes\",\r\n        \"estado\": \"Corrientes\",\r\n        \"codigo_postal\": \"3345\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/pacientes",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "pacientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar pacientes",
+          "id": "cfcb7dd8-cac3-4df6-985c-edc4d110ed64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Kuky Garay\",\r\n    \"email\": \"kuky@gmail.com\",\r\n    \"telefono\": \"34567892345\",\r\n    \"documento\": \"33056078\",\r\n    \"especialidad\": \"DERMATOLOGIA\",\r\n    \"direccion\": {\r\n        \"calle\": \"calle W\",\r\n        \"numero\": \"6\",\r\n        \"complemento\": \"complemento\",\r\n        \"barrio\": \"barrio\",\r\n        \"codigo_postal\": \"5842\",\r\n        \"ciudad\": \"El Fortin\",\r\n        \"estado\": \"San Luis\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/pacientes",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "pacientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar paciente",
+          "id": "c0f3273f-c82b-41a1-b4a2-55433fdd284b",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"1\",\r\n    \"activo\": true,\r\n    \"nombre\": \"Carlos Enrique\",\r\n    \"telefono\": \"3543338111\"       \r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/pacientes",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "pacientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar paciente",
+          "id": "e34c53d8-bebe-4c34-8567-4df1607e1898",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"Tobias Garay\"    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/medicos/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "medicos",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "64b659d1-8080-4956-a95c-8a2b14d6c3d8"
+    }
+  ]
+}
