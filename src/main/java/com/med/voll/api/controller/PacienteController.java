@@ -32,13 +32,13 @@ public class PacienteController {
 
     @GetMapping
     public ResponseEntity<Page<DatosListaPaciente>> listar(@PageableDefault(size = 10, sort = {"nombre"}) Pageable paginacion) {
-//        return repository.findAllByActivoTrue(paginacion).map(DatosListaPaciente::new);
-        try {
+
+//        try {
             var page = repository.findAllByActivoTrue(paginacion).map(DatosListaPaciente::new);
             return ResponseEntity.ok(page);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().build();
+//        }
     }
 
     @Transactional
