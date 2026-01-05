@@ -1,6 +1,7 @@
 package com.med.voll.api.controller;
 
-import com.med.voll.api.medico.*;
+import com.med.voll.api.domain.medico.*;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,7 +23,7 @@ public class MedicoController {
     @Transactional
     @PostMapping
     public ResponseEntity<DatosDetalleMedico> registrar(@Valid @RequestBody DatosRegistroMedico datos,
-                                      UriComponentsBuilder uriComponentsBuilder)  {
+                                                        UriComponentsBuilder uriComponentsBuilder)  {
         var medico = new Medico(datos);
         repository.save(medico);
         var uri = uriComponentsBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
@@ -31,7 +32,7 @@ public class MedicoController {
 
     @GetMapping
     public ResponseEntity<Page<DatosListaMedico>> listar(@PageableDefault(size = 10, sort = {"nombre"}) Pageable paginacion) {
-//        return ResponseEntity.ok(repository.findAllByActivoTrue(paginacion).map(DatosListaMedico::new));
+
         try {
             var page = repository.findAllByActivoTrue(paginacion).map(DatosListaMedico::new);
             return ResponseEntity.ok(page);
@@ -51,9 +52,9 @@ public class MedicoController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build(); // 404 si no existe!!!
-        }
+//        if (!repository.existsById(id)) {
+//            return ResponseEntity.notFound().build(); // 404 si no existe!!!
+//        }
         var medico = repository.getReferenceById(id);
         medico.eliminar();
         return ResponseEntity.noContent().build();
@@ -62,11 +63,11 @@ public class MedicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DatosDetalleMedico> detallar(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build(); // 404 si no existe!!!
-        }
+//        if (!repository.existsById(id)) {
+//            return ResponseEntity.notFound().build(); // 404 si no existe!!!
+//        }
         var medico = repository.getReferenceById(id);
-//        medico.eliminar();
+
         return ResponseEntity.ok(new DatosDetalleMedico(medico));
     }
 }

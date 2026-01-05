@@ -1,6 +1,7 @@
 package com.med.voll.api.controller;
 
-import com.med.voll.api.paciente.*;
+import com.med.voll.api.domain.paciente.*;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,7 +22,7 @@ public class PacienteController {
     @Transactional
     @PostMapping
     public ResponseEntity<DatosDetallePaciente> registrar(@Valid @RequestBody DatosRegistroPaciente datos,
-                                      UriComponentsBuilder uriComponentsBuilder) {
+                                                          UriComponentsBuilder uriComponentsBuilder) {
         var paciente = new Paciente(datos);
         repository.save(paciente);
 
@@ -51,9 +52,9 @@ public class PacienteController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
+//        if (!repository.existsById(id)) {
+//            return ResponseEntity.notFound().build();
+//        }
         var paciente = repository.getReferenceById(id);
         paciente.eliminar();
         return ResponseEntity.noContent().build();
@@ -61,9 +62,9 @@ public class PacienteController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DatosDetallePaciente> detallar(@PathVariable Long id) {
-        if (!repository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
+//        if (!repository.existsById(id)) {
+//            return ResponseEntity.notFound().build();
+//        }
         var paciente = repository.getReferenceById(id);
 
         return ResponseEntity.ok(new DatosDetallePaciente(paciente));

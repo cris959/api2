@@ -1,7 +1,6 @@
-package com.med.voll.api.paciente;
+package com.med.voll.api.domain.paciente;
 
-import com.med.voll.api.direccion.Direccion;
-import com.med.voll.api.medico.Especialidad;
+import com.med.voll.api.domain.direccion.Direccion;
 
 public record DatosDetallePaciente(
         Long id,
