@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -19,8 +20,13 @@ public class PacienteController {
 
     @Transactional
     @PostMapping
-    public void registrar(@Valid @RequestBody DatosRegistroPaciente datos) {
-        repository.save(new Paciente(datos));
+    public ResponseEntity<DatosDetallePaciente> registrar(@Valid @RequestBody DatosRegistroPaciente datos,
+                                      UriComponentsBuilder uriComponentsBuilder) {
+        var paciente = new Paciente(datos);
+        repository.save(paciente);
+
+        var uri = uriComponentsBuilder.path("/pacientes/{id}").buildAndExpand().toUri();
+        return ResponseEntity.created(uri).body(new DatosDetallePaciente(paciente));
     }
 
     @GetMapping
@@ -48,8 +54,18 @@ public class PacienteController {
         if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        var medico = repository.getReferenceById(id);
-        medico.eliminar();
+        var paciente = repository.getReferenceById(id);
+        paciente.eliminar();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosDetallePaciente> detallar(@PathVariable Long id) {
+        if (!repository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        var paciente = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DatosDetallePaciente(paciente));
     }
 }
