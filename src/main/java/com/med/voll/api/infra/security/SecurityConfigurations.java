@@ -24,11 +24,15 @@ public class SecurityConfigurations {
 
         @Bean
         public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+<<<<<<< HEAD
             return configuration.getAuthenticationManager();
         }
 
         @Bean
         public PasswordEncoder passwordEncoder() {
             return new BCryptPasswordEncoder();
+=======
+           return configuration.getAuthenticationManager();
+>>>>>>> 317b5684ca684f1d768a91422a695a697784f4f5
         }
 }

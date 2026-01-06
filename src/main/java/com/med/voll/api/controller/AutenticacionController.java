@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class AutenticacionController {
 
+<<<<<<< HEAD
     @Autowired
     private AuthenticationManager manager;
 
@@ -25,4 +26,17 @@ public class AutenticacionController {
 
         return ResponseEntity.ok().build();
     }
+=======
+        @Autowired
+        private AuthenticationManager manager;
+
+
+        @PostMapping
+        public ResponseEntity<DatosAutenticacion> iniciarSesion(@Valid @RequestBody DatosAutenticacion datos) {
+            var token = new UsernamePasswordAuthenticationToken(datos.login(), datos.contrasena());
+            var autenticacion = manager.authenticate(token);
+
+            return ResponseEntity.ok().build();
+        }
+>>>>>>> 317b5684ca684f1d768a91422a695a697784f4f5
 }
